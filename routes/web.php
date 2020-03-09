@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/', function() { return "hello word"; });
+Route::get('/episodes', 'EpisodeController@index');
 Route::get('/filmes/{id}', 'FilmeController@procurarFilmeId');
 Route::get('/filmes/procurar/{nome}', 'FilmeController@procurarFilmeNome');
 Route::get('/filmes', 'FilmeController@listar');
