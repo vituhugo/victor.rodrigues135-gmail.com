@@ -59,7 +59,7 @@ class FilmeController extends Controller
         //   "titulo" => "Sair pra passear"
         //     "classificacao" => "12"
         //     "premios" => "5"
-        //     "duracao" => "120"
+        //'     "duracao" => "120"
         //     "dia" => null
         //     "mes" => null
         //     "ano" => null

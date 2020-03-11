@@ -19,3 +19,10 @@ Route::get('/filmes/procurar/{nome}', 'FilmeController@procurarFilmeNome');
 Route::get('/filmes', 'FilmeController@listar');
 Route::get('/adicionar-filme', 'FilmeController@adicionarFilme');
 Route::post('/adicionar-filme', 'FilmeController@adicionarFilmePost');
+
+//Adicionar essas Rotas:
+
+Route::get('/adicionar-usuario', 'UserController@create');
+Route::post('/adicionar-usuario', 'UserController@store');
+
+Route::get('/usuarios', 'UserController@index');
