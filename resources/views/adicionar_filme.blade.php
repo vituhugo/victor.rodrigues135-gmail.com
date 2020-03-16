@@ -9,7 +9,7 @@
     <body>
         <div class="container">
             <h1 class="title"> Adicionar Filme </h1>
-            <form class="card card-sm" id="adicionarFilme" name="adicionarFilme" method="POST">
+            <form class="card card-sm" action="/api/filmes" id="adicionarFilme" name="adicionarFilme" method="POST">
                 @csrf
                 <div class="card-body">
                 <div class="form-group">

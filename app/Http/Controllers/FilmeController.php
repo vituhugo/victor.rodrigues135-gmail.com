@@ -41,7 +41,7 @@ class FilmeController extends Controller
 
     public function listar() {
         $filmes = Movie::query()->paginate();
-        return view('filmes', ['filmes' => $filmes]);
+        return view('filmes', ['filmes' =>$filmes]);
     }
 
     public function adicionarFilme() {
