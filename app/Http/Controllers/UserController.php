@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Http\Requests\UserRequest;
 
 class UserController extends Controller
 {
@@ -16,7 +17,7 @@ class UserController extends Controller
         return view('adicionar_usuario');
     }
 
-    public function store(Request $request) {
+    public function store(UserRequest $request) {
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
@@ -24,6 +25,7 @@ class UserController extends Controller
         $user->confirm_password = $request->confirm_password;
 
 
-        return view('adicionar_usuario');
+        return redirect('usuarios')
+            ->with('mensagem', 'Usuário adicionado com sucesso');
     }
 }

@@ -12,6 +12,25 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/collection', function() {
+    // $winter_is_coming = App\Episode::find(1);
+    // dd($winter_is_coming->actors);
+
+    // $movie = App\Movie::find(1);
+    // $movie->genre;
+
+    $actor = App\Actor::find(1);
+    dd($actor->first_name, $actor->favorite_movie);
+});
+
+
+
+
+
+
+
+
 Route::get('/', function() { return "hello word"; });
 Route::get('/episodes', 'EpisodeController@index');
 Route::get('/filmes/{id}', 'FilmeController@procurarFilmeId');
@@ -25,4 +44,7 @@ Route::post('/adicionar-filme', 'FilmeController@adicionarFilmePost');
 Route::get('/adicionar-usuario', 'UserController@create');
 Route::post('/adicionar-usuario', 'UserController@store');
 
-Route::get('/usuarios', 'UserController@index');
+Route::get('/usuarios', 'UserController@index')->middleware('auth');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

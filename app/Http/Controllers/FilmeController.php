@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Movie;
+use App\Http\Requests\FilmeRequest;
+use App\Genre;
 
 class FilmeController extends Controller
 {
@@ -43,19 +45,26 @@ class FilmeController extends Controller
     }
 
     public function adicionarFilme() {
-        return view('adicionar_filme');
+        $genres = Genre::all();
+        return view('adicionar_filme', ['genres' => $genres]);
     }
 
-    public function adicionarFilmePost(Request $request) {
+    public function adicionarFilmePost(FilmeRequest $request) {
         // dd($request->all());
+        // $filmeNovo = new Movie();
+        // $filmeNovo->title = $request->titulo;
+        // $filmeNovo->rating = $request->classificacao;
+        // $filmeNovo->awards = $request->premios;
+        // $filmeNovo->length = $request->duracao;
+        // // $filmeNovo->release_date = '2020-03-09 00:00:00';
+        // $filmeNovo->release_date = "$request->ano-$request->mes-$request->dia 00:00:00";
+        // $filmeNovo->genre_id = $request->genre_id;
+        // $filmeNovo->save();
+        $data = $request->all();
         $filmeNovo = new Movie();
-        $filmeNovo->title = $request->titulo;
-        $filmeNovo->rating = $request->classificacao;
-        $filmeNovo->awards = $request->premios;
-        $filmeNovo->length = $request->duracao;
-        // $filmeNovo->release_date = '2020-03-09 00:00:00';
         $filmeNovo->release_date = "$request->ano-$request->mes-$request->dia 00:00:00";
-        $filmeNovo->save();
+        $filmeNovo->fill($data)->save();
+
         //   "titulo" => "Sair pra passear"
         //     "classificacao" => "12"
         //     "premios" => "5"

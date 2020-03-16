@@ -22,14 +22,20 @@
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input class="form-control" type="text" name="email" id="email"/>
+                    @error('email')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="password">Senha</label>
-                    <input class="form-control" type="text" name="password" id="password"/>
+                    <input class="form-control" type="password" name="password" id="password"/>
+                    @error('password')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="confirm-password">Confirmar Senha</label>
-                    <input class="form-control" type="text" name="cofirm_password" id="confirm-password"/>
+                    <input class="form-control" type="password" name="password_confirmation" id="confirm-password"/>
                 </div>
             </div>
             <div class="card-footer text-right">
